@@ -4,6 +4,12 @@ from threading import Thread
 
 
 def extract_zip(zFile, password):
+    """[summary]
+    
+    Arguments:
+        zFile string -- zippef file 
+        password {[type]} -- [description]
+    """    
     match = False
     try:
         zFile.extractall(pwd=password)
