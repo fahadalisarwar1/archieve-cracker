@@ -12,10 +12,12 @@ def extract_zip(zFile, password):
     """    
     match = False
     try:
-        zFile.extractall(pwd=password)
+        zFile.extractall(pwd=bytes(password, "utf-8"))
+        print(password)
         print("[+] Password found : ", password)
         match = True
     except:
+        
         pass
     
 
@@ -39,8 +41,8 @@ if __name__ == "__main__":
     
     zFile = zipfile.ZipFile(zname)
 
-    passFile = open(dname)
-    for line in passFile.readlines():
+    passFile = open(dname, "r")
+    for line in passFile.readlines(1000):
         passwd = line.strip("\n")
         
         t = Thread(target=extract_zip, args=(zFile, passwd))

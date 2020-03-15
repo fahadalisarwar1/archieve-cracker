@@ -1,2 +1,0 @@
-# crack zip and rar
-
